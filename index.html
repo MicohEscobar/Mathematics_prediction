@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Performance Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 900px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            font-size: 24px;
+        }
+        label {
+            font-size: 14px;
+            color: #555;
+            display: block;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        select, input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .submit-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+        .header-image {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header image -->
+        <img src="static/images/students.png" alt="Header Image" class="header-image">
+
+        <h1>Mathematics Performance Prediction</h1>
+
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <div>
+                    <label for="Mother_edu">Mother's Education:</label>
+                    <select id="Mother_edu" name="Mother_edu" required>
+                        <option value="1">PLSCE or Lower</option>
+                        <option value="2">MSCE or Lower</option>
+                        <option value="3">Diploma</option>
+                        <option value="4">Bachelors Degree/Other</option>
+                    </select>
+
+                    <label for="Peerpractice">Peer Practice(Weekly):</label>
+                    <select id="Peerpractice" name="Peerpractice" required>
+                        <option value="1">Rarely</option>
+                        <option value="2">1 Hour</option>
+                        <option value="3">2 to 3 Hours</option>
+                        <option value="4">More than 3 Hours</option>
+                    </select>
+
+                    <label for="famsup">Family Support:</label>
+                    <select id="famsup" name="famsup" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+
+                    <label for="goals">Has Academic Goals:</label>
+                    <select id="goals" name="goals" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+
+                    <label for="EnglishScore">English Score:</label>
+                    <input type="number" id="EnglishScore" name="EnglishScore" required>
+
+                    <label for="teachingmethod_Lecture">Teaching Method:</label>
+                    <select id="teachingmethod_Lecture" name="teachingmethod_Lecture" required>
+                        <option value="0">Interactive</option>
+                        <option value="1">Lecture Method</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="Father_edu">Father's Education:</label>
+                    <select id="Father_edu" name="Father_edu" required>
+                        <option value="1">PLSCE or Lower</option>
+                        <option value="2">MSCE or Lower</option>
+                        <option value="3">Diploma</option>
+                        <option value="4">Bachelors Degree or Higher</option>
+                    </select>
+
+                    <label for="studytime">Study Time (Weekly):</label>
+                    <select id="studytime" name="studytime" required>
+                        <option value="1">1-2 Hours</option>
+                        <option value="2">2-3 Hours</option>
+                        <option value="3">3-4 Hours</option>
+                        <option value="4">4 Hours or More</option>
+                    </select>
+
+                    <label for="Affordfees">Can Afford Fees:</label>
+                    <select id="Affordfees" name="Affordfees" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+
+                    <label for="Mathteachers">Has Math Teachers Support:</label>
+                    <select id="Mathteachers" name="Mathteachers" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+
+                    <label for="XulResources">Has Extra Learning Resources:</label>
+                    <select id="XulResources" name="XulResources" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+            </div>
+            <input type="submit" value="Predict" class="submit-btn">
+        </form>
+    </div>
+</body>
+</html>
