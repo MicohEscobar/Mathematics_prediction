@@ -67,7 +67,7 @@
 
         {% if result_data %}
             <div class="prediction-result">
-                <p><strong>Predicted Class:</strong> {{ result_data["prediction"] }}</p>
+                <p><strong>The Student is able to achieve a Math Score of:</strong> {{ result_data["prediction"] }}</p>
                 {% if result_data["confidence"] %}
                     <p><strong>Confidence Score:</strong> <span class="confidence">{{ result_data["confidence"] }}%</span></p>
                 {% endif %}
